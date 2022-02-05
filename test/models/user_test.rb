@@ -20,6 +20,13 @@ class UserTest < ActiveSupport::TestCase
     user = User.new({name: "Harry", email: "harry@hogwarts", password: "abc123", password_confirmation: "abc123"})
     assert_not user.save
   end
+  
+  test "user cannot register with same email" do
+    user1 = User.new({name: "Harry", email: "harry@hogwarts.com", password: "abc123", password_confirmation: "abc123"})
+    user2 = User.new({name: "Ron", email: "harry@hogwarts.com", password: "abc123", password_confirmation: "abc123"})
+    assert user1.save
+    assert_not user2.save
+  end
 
   test "user cannot register with too short password" do
     user = User.new({name: "Harry", email: "harry@hogwarts.com", password: "abc12", password_confirmation: "abc12"})
