@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      # session[:user_id] = user.id
+      session[:current_user_id] = user.id
       render plain: 'User created!', status: :ok
     else
       render plain: 'Failed to create user!', status: :bad_request
