@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  before_save { self.email = self.email.to_s.downcase.strip }
 
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
