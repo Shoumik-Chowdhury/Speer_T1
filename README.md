@@ -25,7 +25,7 @@
 
 - To login:
 
-  - Send POST request to `/login` with form parameters user.email, user.password.
+  - Send POST request to `/login` with form parameters session.email, session.password.
 
 - To logout:
   - Send GET request to `logout`.
