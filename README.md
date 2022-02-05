@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+- ruby 3.0.0p0
+- rails 7.0.1
 
-* Ruby version
+## Setup
 
-* System dependencies
+- clone this repository to local machine
+- run `bundle install`
+- configure database. Default set as postgreSQL. Enter credentials to .env file following .env.example.
+- migrate databse cmd: `rails db:migrate`
+- start server cmd: `rails server`
 
-* Configuration
+## Tests
 
-* Database creation
+- run all tests cmd: `bin/rails test`
 
-* Database initialization
+## Making requests
 
-* How to run the test suite
+- To register a user:
 
-* Services (job queues, cache servers, search engines, etc.)
+  - Send POST request to `/users` with form parameters user.name, user.email, user.password and user.password_confirmation. No user interface so use a tool like insomnia or other preferred method.
 
-* Deployment instructions
+- To login:
 
-* ...
+  - Send POST request to `/login` with form parameters user.email, user.password.
+
+- To logout:
+  - Send GET request to `logout`.
